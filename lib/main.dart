@@ -36,24 +36,29 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary, // Utilisation de la couleur principale
-        title: Image.asset('images/logo.png', height: 40), // Ajustement de la hauteur du logo si besoin
+        backgroundColor:
+            Theme.of(
+              context,
+            ).colorScheme.primary, // Utilisation de la couleur principale
+        title: Image.asset(
+          'images/logo.png',
+          height: 40,
+        ), // Ajustement de la hauteur du logo si besoin
       ),
-      body: Offerpages()
-      
-     // const Center(
-       // child: Text("Bienvenue au Coffee Shop !"),
+
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(label: "Menu", icon: Icon(Icons.coffee)),
+                    BottomNavigationBarItem(label: "Offers", icon: Icon(Icons.local_offer)),
+          BottomNavigationBarItem(label: "Order", icon: Icon(Icons.shopping_cart)),
+
+        ],
+      ),
+      body: Offerpages(),
+
+      // const Center(
+      // child: Text("Bienvenue au Coffee Shop !"),
       //),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
