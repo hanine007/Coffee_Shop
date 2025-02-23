@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/offerpages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,9 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.primary, // Utilisation de la couleur principale
         title: Image.asset('images/logo.png', height: 40), // Ajustement de la hauteur du logo si besoin
       ),
-      body: const Center(
-        child: Text("Bienvenue au Coffee Shop !"),
-      ),
+      body: Offerpages()
+      
+     // const Center(
+       // child: Text("Bienvenue au Coffee Shop !"),
+      //),
     );
   }
 }
