@@ -6,7 +6,7 @@ class Offerpages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return ListView( // permet de scroller
       children: [
         const Offer(title: "My great Offers", description: "buy me one coffe"),
         const Offer(title: "My great Offers", description: "buy me one coffe"),
