@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+//import 'package:flutter/rendering.dart';
 
 class Offerpages extends StatelessWidget {
   const Offerpages({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
-        const Offer(
-          title: "My great Offers",
-          description: "buy me one coffe",
-        ),
-        const Offer(
-          title: "My great Offers",
-          description: "buy me one coffe",
-        ),
-        const Offer(
-          title: "My great Offers",
-          description: "buy me one coffe",
-        ),
+        const Offer(title: "My great Offers", description: "buy me one coffe"),
+        const Offer(title: "My great Offers", description: "buy me one coffe"),
+        const Offer(title: "My great Offers", description: "buy me one coffe"),
+        const Offer(title: "My great Offers", description: "buy me one coffe"),
+        const Offer(title: "My great Offers", description: "buy me one coffe"),
       ],
     ); //retourn Offer avec title et description
   }
