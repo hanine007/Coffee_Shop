@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/datamanger.dart';
 import 'package:myapp/offerpages.dart';
 import 'package:myapp/Orderpages.dart';
 import 'package:myapp/Menupages.dart';
@@ -35,6 +36,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 0;
+  var data = Datamanger();
 
   // Liste des pages associées aux onglets
   final List<Widget> pages = [
