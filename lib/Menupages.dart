@@ -3,19 +3,46 @@ import 'package:myapp/datamanger.dart';
 import 'package:myapp/datamodel.dart';
 
 class Menupages extends StatelessWidget {
-  final Datamanger  datamanger;
-  const Menupages({super.key,required this.datamanger});
+  final Datamanger datamanger;
+  const Menupages({super.key, required this.datamanger});
 
   @override
   Widget build(BuildContext context) {
-    var p = Product(name: "Coffee", id: 1, price: 35, image: "");
-    var q = Product(name: "Coffee Simple", id: 2, price: 20, image: "");
-
-    return ListView(
-      children: [
-        ProductItem(product: p, onAdd: () {}),
-        ProductItem(product: q, onAdd: () {}),
-      ],
+    return FutureBuilder(
+      future: datamanger.getmenu(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          var categories = snapshot.data! as List<Category>;
+          return ListView.builder(
+            itemCount: categories.length,
+            itemBuilder: (context, index) {
+              return Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(categories[index].name),
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true, // Permet de scroller
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: categories[index].products.length,
+                    itemBuilder: (context, prodindex) {
+                      return ProductItem(
+                        product: categories[index].products[prodindex],
+                        onAdd: () {},
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        } else if (snapshot.hasError) {
+          return const Text("There was an error");
+        } else {
+          return const CircularProgressIndicator();
+        }
+      },
     );
   }
 }

@@ -1,9 +1,31 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 import 'package:myapp/datamodel.dart';
 
 class Datamanger {
   List<Category>? _menu; // Liste pouvant être null
 
   List<ItemClass> cart = [];
+  fetchmenu() async {
+    const url = "https://firtman.github.io/coffeemasters/api/menu.json";
+    var response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      _menu = [];
+      var decodedData = jsonDecode(response.body) as List<dynamic>;
+      for (var json in decodedData) {
+        _menu?.add(Category.fromJson(json));
+      }
+    }
+  }
+
+  Future<List<Category>> getmenu() async {
+    if (_menu == null) {
+      fetchmenu();
+    }
+    return _menu!;
+  }
+
   cartadd(Product p) {
     bool found = false;
     for (var item in cart) {
