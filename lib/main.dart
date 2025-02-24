@@ -36,7 +36,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 0;
-  final Datamanger datamanger = Datamanger(); 
+  final Datamanger datamanger = Datamanger();
 
   void onTabTapped(int index) {
     setState(() {
@@ -49,9 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final List<Widget> pages = [
       Menupages(datamanger: datamanger),
       const Offerpages(),
-      orderpages(
-        datamanger: datamanger,
-      ), 
+      orderpages(datamanger: datamanger),
     ];
 
     return Scaffold(
