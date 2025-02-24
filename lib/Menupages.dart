@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/datamanger.dart';
 import 'package:myapp/datamodel.dart';
 
 class Menupages extends StatelessWidget {
-  const Menupages({super.key});
+  final Datamanger  datamanger;
+  const Menupages({super.key,required this.datamanger});
 
   @override
   Widget build(BuildContext context) {
