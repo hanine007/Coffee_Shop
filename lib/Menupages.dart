@@ -61,7 +61,8 @@ class ProductItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset("images/black_coffee.png"),
+            //Image.asset("images/black_coffee.png"),
+            Image.network(product.imageurl),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
