@@ -27,9 +27,12 @@ class Menupages extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: categories[index].products.length,
                     itemBuilder: (context, prodindex) {
+                      var product = categories[index].products[prodindex];
                       return ProductItem(
-                        product: categories[index].products[prodindex],
-                        onAdd: () {},
+                        product: product,
+                        onAdd: () {
+                          datamanger.cartadd(product);
+                        },
                       );
                     },
                   ),
