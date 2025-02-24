@@ -36,17 +36,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 0;
-  var data = Datamanger();
-
-  // Liste des pages associées aux onglets
-  final List<Widget> pages = [
-    //Liste de pages[]
-    // const Center(child: Text("Menu Page", style: TextStyle(fontSize: 20))),
-    const Menupages(),
-    const Offerpages(),
-    const orderpages(),
-    //const Center(child: Text("Order Page", style: TextStyle(fontSize: 20))),
-  ];
+  final Datamanger datamanger = Datamanger(); 
 
   void onTabTapped(int index) {
     setState(() {
@@ -56,6 +46,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      Menupages(datamanger: datamanger),
+      const Offerpages(),
+      orderpages(
+        datamanger: datamanger,
+      ), 
+    ];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
