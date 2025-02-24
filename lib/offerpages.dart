@@ -9,10 +9,9 @@ class Offerpages extends StatelessWidget {
     return ListView( // permet de scroller
       children: [
         const Offer(title: "My great Offers", description: "buy me one coffe"),
-        const Offer(title: "My great Offers", description: "buy me one coffe"),
-        const Offer(title: "My great Offers", description: "buy me one coffe"),
-        const Offer(title: "My great Offers", description: "buy me one coffe"),
-        const Offer(title: "My great Offers", description: "buy me one coffe"),
+        const Offer(title: "Bienvenue", description: "Profitez du moment"),
+        const Offer(title: "Azul", description: "Profitez du moment"),
+        
       ],
     ); //retourn Offer avec title et description
   }
